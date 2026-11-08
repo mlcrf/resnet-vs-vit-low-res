@@ -23,8 +23,7 @@ Computer Science Extended Essay (IB, May 2026 session).
 5. [Conclusion](#5-conclusion)
 6. [Further Scope](#6-further-scope)
 7. [Bibliography](#7-bibliography)
-8. [Appendix A: Neural Networks](#8-appendix-a-neural-networks)
-9. [Running the Code](#running-the-code)
+8. [Running the Code](#running-the-code)
 
 ---
 
@@ -57,7 +56,7 @@ Neural Networks (NN) are a fundamental architecture inspired by the human brain,
 
 Each connection between neurons is associated with a weight parameter, and each neuron with its own bias term. As data points pass through the network, a given neuron will compute the weighted sum of all previous inputs, add its bias, and apply a non-linear activation function, allowing the network to model complex and non-linear relationships.
 
-During training, the network adjusts its weights and biases through a process called backpropagation. A loss function calculates the squared difference between the expected and actual output, which an optimizer then uses to indicate how each parameter should be adjusted (see [Appendix A](#8-appendix-a-neural-networks) for a full in-depth explanation). This process of optimization enables the model to progressively improve its prediction performance as it is repeatedly exposed to underlying patterns of the given dataset.
+During training, the network adjusts its weights and biases through a process called backpropagation. A loss function calculates the squared difference between the expected and actual output, which an optimizer then uses to indicate how each parameter should be adjusted. This process of optimization enables the model to progressively improve its prediction performance as it is repeatedly exposed to underlying patterns of the given dataset.
 
 ### 2.2 Convolutional Neural Networks
 
@@ -314,19 +313,9 @@ Due to the rapidly evolving nature of AI, data scientists are continuously devel
 
 ---
 
-## 8 Appendix A: Neural Networks
-
-The connections between neurons are assigned their own weight parameter that scales a passed input signal to a learned importance. A neuron sums the weighted inputs from previous connected neurons, for which it adds its own bias term, and then applies a non-linear activation function such as Sigmoid, Tanh, or ReLU. The activation function acts like a threshold mechanism, deciding if a neuron 'fires' and how strongly its output contributes to the next layer, all while adding a non-linear component to the model. The bias shifts this function horizontally, giving the model flexibility to adjust the threshold for a neuron to 'activate' independently of the input values.
-
-The output of this operation is passed along as an input to the next layer, repeating until the end of the network, where each possible label is assigned a probability from 0 to 1. The full computation from the data being fed into the input layer to a prediction result in the output layer is known as a forward pass. In a single forward pass, certain collections of neurons will activate more than others, recognizing the patterns that will allow for a better classification output.
-
-During backpropagation, a batch of data with known target values is fed through the network, where a loss function then finds how much the model's predictions deviate from the correct output. The gradient of the loss with respect to each parameter is found by applying the chain rule in calculus, backward through the network. Finally, the optimizer updates the model's parameters by adjusting them in the direction that decreases the loss. This process is repeated for multiple iterations over the training set, known as epochs, helping the model solidify the general patterns across a class. While procedures may look slightly different across various deep learning algorithms, the presence of a forward pass, backpropagation, an optimizer, and an activation function is consistent across the rest of the algorithms presented in this study.
-
----
-
 ## Running the Code
 
-All code (Appendix B of the essay) lives in [`main.ipynb`](main.ipynb):
+All code lives in [`main.ipynb`](main.ipynb):
 
 1. **Training (Google Colab, GPU):** the first part of the notebook builds the RESISC45 dataloaders at 32/64/128 px, trains all four models, and saves each model + its training history to Google Drive as `ViT-CNN-Results/{model}-{px}_results.pth`.
 2. **Evaluation (local):** the *Model Testing and Evaluation* section loads those `.pth` files from a local `ViT-CNN-Results/` folder, evaluates every model on the test set, plots the training curves and accuracy-vs-resolution graph, writes [`performance_table.csv`](performance_table.csv), and visualizes ViT attention maps.
