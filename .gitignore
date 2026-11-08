@@ -1,0 +1,13 @@
+# Trained models + training histories (~1.6 GB, too large for GitHub)
+ViT-CNN-Results/
+*.pth
+
+# macOS
+.DS_Store
+
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+venv/
